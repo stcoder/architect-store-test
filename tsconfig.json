@@ -17,6 +17,26 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "sidebar": [
+        "dist/sidebar"
+      ],
+      "sidebar/*": [
+        "dist/sidebar/*"
+      ],
+      "search": [
+        "dist/search"
+      ],
+      "search/*": [
+        "dist/search/*"
+      ],
+      "table": [
+        "dist/table"
+      ],
+      "table/*": [
+        "dist/table/*"
+      ]
+    }
   }
 }
