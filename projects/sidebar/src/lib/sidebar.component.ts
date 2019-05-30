@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {getActive, getItems, SidebarStore} from "./sidebar-store/reducers";
 import {select, Store} from "@ngrx/store";
 import {activate} from "./sidebar-store/actions/sidebar.actions";
+import { Item } from './model/item';
 
 @Component({
   selector: 'lib-sidebar',
@@ -14,6 +15,7 @@ import {activate} from "./sidebar-store/actions/sidebar.actions";
         class="nav-link" 
         *ngFor="let item of items$ | async"
         [ngClass]="{'active': (active$ | async) === item.id}"
+        id="menu-item-{{ item.key }}"
       >
         {{ item.name }}
         <span *ngIf="item.count" class="badge badge-warning">{{ item.count }}</span>
@@ -24,7 +26,7 @@ import {activate} from "./sidebar-store/actions/sidebar.actions";
 })
 export class SidebarComponent implements OnInit {
 
-  public items$: Observable<object[]>;
+  public items$: Observable<Item[]>;
   public active$: Observable<string>;
 
   constructor(private store: Store<SidebarStore>) { }

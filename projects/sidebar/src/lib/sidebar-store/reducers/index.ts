@@ -1,9 +1,10 @@
 import {createFeatureSelector, createSelector, MetaReducer} from '@ngrx/store';
 import {activate, setItems, SidebarActionsUnion} from '../actions/sidebar.actions';
+import { Item } from '../../model/item';
 
 
 export interface SidebarStore {
-  items: {}[];
+  items: Item[];
   active: null | string;
 }
 

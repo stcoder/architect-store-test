@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RootStoreModule } from './root-store/root-store.module';
 import {SidebarModule} from "../../projects/sidebar/src/lib/sidebar.module";
 import {HttpClientModule} from "@angular/common/http";
+import { TableModule } from 'projects/table/src/public-api';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     AppRoutingModule,
     RootStoreModule,
-    SidebarModule
+    SidebarModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
