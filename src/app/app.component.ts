@@ -38,13 +38,13 @@ export class AppComponent implements OnInit {
       { key: 'createdAt', title: 'Created at' }
     ]);
 
-    this.table.setBaseApiUrl('http://5cefc8a75660c400149490f8.mockapi.io/');
+    this.table.setBaseApiUrl('/api');
   }
 
   ngOnInit() {
     this
       .http
-      .get<Item[]>('http://5cefc8a75660c400149490f8.mockapi.io/stats')
+      .get<Item[]>('/api/stats')
       .subscribe(items => this.store.dispatch(setItems({ items: items })));
   }
 

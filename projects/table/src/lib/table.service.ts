@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { TableStore } from './table-store/reducers';
 import { Store } from '@ngrx/store';
-import { LoadItems } from './table-store/actions/item.actions';
+import {AddItems, LoadItems} from './table-store/actions/item.actions';
+import {Item} from "./table-store/models/item.model";
 
 export interface Column {
   key: string;
@@ -15,7 +16,7 @@ export interface Column {
 })
 export class TableService {
 
-  protected columns: Column[];
+  public columns: Column[];
   protected baseApiUrl: string;
 
   constructor(
@@ -31,13 +32,9 @@ export class TableService {
     this.baseApiUrl = url;
   }
 
-  get<T>(method: string, params) {
+  get<T>(method: string, params?) {
     return this
       .http
-      .get<T>(`${this.baseApiUrl}${method}`)
-      .pipe(
-        tap(response => console.log(response))
-        // tap(this.store.dispatch(new LoadItems()))
-      )
+      .get<Item[]>(`${this.baseApiUrl}${method}`);
   }
 }

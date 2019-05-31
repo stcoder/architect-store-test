@@ -80,7 +80,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "architect-store-test:build"
+            "browserTarget": "architect-store-test:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
